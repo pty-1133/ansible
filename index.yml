@@ -1,0 +1,10 @@
+---
+- name: install packages
+  hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+          - copy:
+                  src: /home/ansadmin/index.html
+                  dest: /var/www/html
+

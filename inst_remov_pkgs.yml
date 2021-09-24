@@ -1,0 +1,16 @@
+---
+- name: install n remove pkgs
+  hosts: all
+  become: true
+  gather_facts: yes
+
+  tasks:
+        - name: inst n uninst pkg
+          yum: 
+                name: "{{ item.pkg }}"
+                state: "{{ item.setup }}"
+          loop:
+                  - { pkg: 'git', setup: 'installed' }
+                  - { pkg: 'make', setup: 'latest' }
+                  - { pkg: 'wget', setup: 'latest' }
+                  - { pkg: 'tree', setup: 'absent' }
