@@ -1,0 +1,13 @@
+---
+- name: cloning repo
+  hosts: redhat
+  gather_facts: no
+
+  vars_files:
+          - pass.yml
+
+  tasks:
+          - name: cloning repo
+            git:
+                    repo: https://pty-1133:{{ git_password }}@github.com/pty-1133/git-test-ansible.git
+                    dest: /home/ansadmin/vault-test

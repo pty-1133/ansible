@@ -2,11 +2,12 @@
 - name: uninstall multiple packages
   hosts: all
   become: true
-  gather_facts: no
+  gather_facts: true
 
   tasks:
-      - name: remove packages
+      - name: remove httpd packages
         yum:
-            name: [ 'wget', 'telnet', ]
+            name: httpd
             state: absent
+        when: ansible_os_family == "RedHat"
 

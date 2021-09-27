@@ -7,3 +7,11 @@
         - name: create user tmy
           user: 
                 name: rihana
+
+        - name: create a directory
+          file: 
+                path: /opy/rihana_temp_dir
+                state: directory
+                owner: rihana
+                group: rihana
+                mode: 0755
